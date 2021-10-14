@@ -1,0 +1,15 @@
+.titleBar-nav{
+    width: 100%;
+    text-align: center;
+    background-color: #002090;
+}
+
+h1{
+    color: white;
+    padding-top: 0.2em;
+    padding-bottom: 0.4em;
+}
+
+.material-icons {
+    vertical-align: baseline;
+}

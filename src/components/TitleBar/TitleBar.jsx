@@ -1,39 +1,16 @@
-import { useState } from "react";
-import { Button, Navbar, Form, FormControl } from "react-bootstrap";
+import React from 'react';
+import SearchBar from './SearchBar';
 
-
-function TitleBar(props) {
-
-    const [searchQuery, setSearchQuery] = useState("")
-    
-
-
-
-    return ( 
-        <div className="row">
-            <div className="col" align="left">
-            <Navbar bg="light" expand="lg">
-                <Navbar.Brand href="#">vid.io</Navbar.Brand>
-            </Navbar>
-            </div>
-            <div className="col-md-6" align="center">
-            <form onSubmit={props.searchQuery}>
-            <Form className="d-flex" onSubmit={props.searchQuery}>
-                
-                <FormControl 
-                    type="search"
-                    placeholder="Search"
-                    className="mr-2"
-                    aria-label='Search'
-                    name='searchBar'
-                    onChange = {(event) => {setSearchQuery(event.target.value)}}
-                />
-                <Button type='submit' variant="outline-success">Search...</Button>
-            </Form>
-            </form>
+function TitleBar(props){
+    return(
+        <div className="row row-space p-3">
+            <div className="col-md-12" style={{ padding: 0 }}>
+                <div className="titleBar-nav">
+                    <SearchBar searchResults={props.searchResults} />
+                </div>
             </div>
         </div>
-     );
+    )
 }
 
-export default TitleBar;
+export default TitleBar
