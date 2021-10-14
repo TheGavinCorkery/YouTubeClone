@@ -8,11 +8,17 @@ import { useState } from 'react';
 
 function App() {
 
-  const [searchQuery, setSearchQuery]
+  
+  onSubmit = async (searchQuery) => {
+    
+    let response = await axios.get
+
+
+  }
+
+  const [relatedVideos, setRelatedVideos] = useState([])
 
   return (
-    
-    
     <div className="container-fluid">
       <TitleBar />
       <VideoPlayer videoId = {'5qap5aO4i9A'}/>
