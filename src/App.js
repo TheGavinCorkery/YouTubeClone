@@ -6,7 +6,7 @@ import VideoPlayer from './components/VideoPlayer/VideoPlayer'
 function App() {
   return (
     
-    <div className="container">
+    <div className="container-fluid">
       <div className = 'row'>
         <div className = 'col-md-3'>
 
