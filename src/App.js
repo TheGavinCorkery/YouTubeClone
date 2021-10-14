@@ -11,7 +11,7 @@ function App() {
         <div className = 'col-md-3'>
 
         </div>
-        <div className = 'col-md-6'>
+        <div className = 'col-md-6' align = "center">
           <VideoPlayer videoId = {'5qap5aO4i9A'}/>
         </div>
         <div className = 'col-md-3'>
