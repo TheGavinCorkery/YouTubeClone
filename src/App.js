@@ -1,23 +1,21 @@
 import './App.css';
 import { youtubeAPIKey } from './key'
 import VideoPlayer from './components/VideoPlayer/VideoPlayer'
+import TitleBar from './components/TitleBar/TitleBar';
+import { useState } from 'react';
+
 
 
 function App() {
+
+  const [searchQuery, setSearchQuery]
+
   return (
     
+    
     <div className="container-fluid">
-      <div className = 'row'>
-        <div className = 'col-md-3'>
-
-        </div>
-        <div className = 'col-md-6' align = "center">
-          <VideoPlayer videoId = {'5qap5aO4i9A'}/>
-        </div>
-        <div className = 'col-md-3'>
-
-        </div>
-      </div>
+      <TitleBar />
+      <VideoPlayer videoId = {'5qap5aO4i9A'}/>
     </div>
   );
 }
