@@ -78,12 +78,12 @@ class App extends Component {
   postComment = async (comment) => {
     const response = await axios.post(this.commentURL, {
       message: comment.message,
-      video: this.state.videoID
+      video: comment.videoId
     })
   }
 
-  getVideoComments = async (comments) => {
-    const response = await axios.get(`${this.commentURL}${this.state.videoID}/`)
+  getVideoComments = async (video) => {
+    const response = await axios.get(`${this.commentURL}${video.id.videoId}/`)
     this.setState({
       videoComments: response.data
     })
