@@ -2,11 +2,12 @@ import React from 'react';
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import Comments from './Comments';
 import CommentForm from './CommentForm';
+import './Comment.css'
 
 function CommentSection(props) {
     return ( 
 
-        <div>
+        <div className = "commentSection">
             <CommentForm postComment = {props.postComment} videoId = {props.videoId}/>
 
             <Card>
