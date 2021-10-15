@@ -1,16 +1,13 @@
 import React from 'react';
 import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import Comments from './Comments';
 
 function CommentSection(props) {
     return ( 
 
         <div>
             <Card>
-                <ListGroup>
-                    <ListGroupItem>
-                        {/* <Comments videoId={props.videoId} /> */}
-                    </ListGroupItem>
-                </ListGroup>
+                    <Comments videoId={props.videoId} videoComments={props.videoComments} />
             </Card>
         </div>
      );
