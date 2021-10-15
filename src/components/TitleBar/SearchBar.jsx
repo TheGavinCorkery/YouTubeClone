@@ -21,12 +21,10 @@ function SearchBar(props) {
 
     return ( 
         <div className="row">
-            <div className="col" align="left">
-            <Navbar bg="light" expand="lg">
-                <Navbar.Brand href="#">vid.io</Navbar.Brand>
-            </Navbar>
+            <div className="col-md-4" align="left">
+                <h2>vid.io</h2>
             </div>
-            <div className="col-md-6" align="center">
+            <div className = "col-md-4" align= "center">
                 <Form className="d-flex" onSubmit={handleSubmit}>
                     
                     <FormControl 
@@ -40,6 +38,7 @@ function SearchBar(props) {
                     <Button className="btn" type='submit' variant="outline-success">Search</Button>
                 </Form>
             </div>
+            
         </div>
      );
 }
