@@ -8,9 +8,9 @@ function SearchResultsList(props) {
             <ListGroup>
                 <ListGroupItem>Test</ListGroupItem>
                 {props.results.map((video) => {
-                    <ListGroupItem>
-                        {video.id.videoId}
-                    </ListGroupItem>
+                    return <ListGroupItem>
+                                {video.id.videoId}
+                            </ListGroupItem>
                 })}
             </ListGroup>
         </div>
