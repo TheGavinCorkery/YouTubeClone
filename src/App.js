@@ -16,6 +16,10 @@ class App  extends Component {
     this.state = { 
       searchResults: [],
       videoID: null,
+      videoInfo: {
+        title: "",
+        description: ""
+      }
      }
   }
 
@@ -24,11 +28,15 @@ class App  extends Component {
 
   // latestSearchResults =  null
 
-  playSelectedVideo = (selectedVideoID) => {
+  playSelectedVideo = (video) => {
     this.setState({
-      videoID: selectedVideoID
+      videoID: video.id.videoId,
+      videoInfo: {
+        title: video.snippet.title,
+        description: video.snippet.description
+      }
     })
-    this.getRelatedVideos(selectedVideoID)
+    this.getRelatedVideos(video.id.videoId)
   }
 
   getRelatedVideos = async (videoID) => {
@@ -69,9 +77,8 @@ class App  extends Component {
       <div className="container-fluid">
         <TitleBar searchResults={this.getSearchResults}/>
         <div className = "row">
-          <div className = "col-md-3"></div>
           <div className = "col-md-6">
-            {this.state.videoID != null && <VideoPlayer videoId = {this.state.videoID}/>}
+            {this.state.videoID != null && <VideoPlayer videoId={this.state.videoID} videoInfo={this.state.videoInfo}/>}
           </div>
           <div className = "col-md-3">
             <SearchResultsList playVideo = {this.playSelectedVideo}results={this.state.searchResults} />
