@@ -7,9 +7,6 @@ import VideoPlayer from './components/VideoPlayer/VideoPlayer'
 import SearchResultsList from './components/SearchResultsList/SearchResultsList';
 
 
-
-// URL = `https://www.googleapis.com/youtube/v3/search?q=${searchQuery}&key=${youtubeAPIKey}&type=video&maxResults=3`
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +25,6 @@ class App extends Component {
   searchURL = 'https://www.googleapis.com/youtube/v3/search'
   commentURL = 'http://127.0.0.1:8000/comments/'
 
-  // latestSearchResults =  null
 
   playSelectedVideo = (video) => {
     this.setState({
@@ -44,54 +40,85 @@ class App extends Component {
   }
 
   getRelatedVideos = async (videoID) => {
-    const response = await axios.get(this.searchURL, {
-      params: {
-        key: youtubeAPIKey,
-        type: "video",
-        maxResults: 5,
-        part: "snippet",
-        relatedToVideoId: videoID,
-      }
-    })
-    this.setState({
-      searchResults: response.data.items
-    })
+    try {
+      const response = await axios.get(this.searchURL, {
+        params: {
+          key: youtubeAPIKey,
+          type: "video",
+          maxResults: 5,
+          part: "snippet",
+          relatedToVideoId: videoID,
+        }
+      })
+      this.setState({
+        searchResults: response.data.items
+      })
+    }
+    catch(err) {
+      console.log("🚀 ~ file: App.js ~ line 62 ~ App ~ getRelatedVideos= ~ err", err)
+    }
   }
 
   getSearchResults = async (query) => {
-    const response = await axios.get(this.searchURL, {
-      params: {
-        q: query.searchQuery,
-        key: youtubeAPIKey,
-        type: "video",
-        maxResults: 5,
-        part: "snippet",
-        kind: "youtube#searchListResponse",
-        regionCode: "US",
-        order: "viewCount"
-      }
-    })
-    // this.latestSearchResults = [response.data]
-    this.setState({
-      searchResults: response.data.items
-    })
+    try {
+      const response = await axios.get(this.searchURL, {
+        params: {
+          q: query.searchQuery,
+          key: youtubeAPIKey,
+          type: "video",
+          maxResults: 5,
+          part: "snippet",
+          kind: "youtube#searchListResponse",
+          regionCode: "US",
+          order: "viewCount"
+        }
+      })
+      this.setState({
+        searchResults: response.data.items
+      })
+    }
+    catch(err){
+      console.log("🚀 ~ file: App.js ~ line 86 ~ App ~ getSearchResults= ~ err", err)
+      
+    }
   }
 
   postComment = async (comment) => {
-    let videoId = this.state.videoID
-    const response = await axios.post(`${this.commentURL}${videoId}/`, {
-      message: comment.message,
-      video: videoId
-    })
-    console.log(comment)
-    this.getVideoComments(videoId)
+    try {
+      let videoId = this.state.videoID
+      const response = await axios.post(`${this.commentURL}${videoId}/`, {
+        message: comment.message,
+        video: videoId
+      })
+      console.log(comment)
+      this.getVideoComments(videoId)
+    }
+    catch(err){
+      console.log("🚀 ~ file: App.js ~ line 103 ~ App ~ postComment= ~ err", err)
+    }
+  }
+
+  likeComment = async (vote, commentId) => {
+    try {
+      await axios.patch(`${this.commentURL}${commentId}/${vote}`)
+      this.getVideoComments(this.state.videoID)
+    }
+    catch(err){
+    console.log("🚀 ~ file: App.js ~ line 106 ~ App ~ likeComment= ~ err", err)
+    }
+    
   }
 
   getVideoComments = async (videoId) => {
-    const response = await axios.get(`${this.commentURL}${videoId}/`)
-    this.setState({
-      videoComments: response.data
-    })
+    try {
+      const response = await axios.get(`${this.commentURL}${videoId}/`)
+      this.setState({
+        videoComments: response.data
+      })
+    }
+    catch(err){
+      console.log("🚀 ~ file: App.js ~ line 114 ~ App ~ getVideoComments= ~ err", err)
+    }
   }
 
 
@@ -102,7 +129,7 @@ class App extends Component {
         <TitleBar searchResults={this.getSearchResults} />
         <div className="row">
           <div className="col-md-9">
-            {this.state.videoID != null && <VideoPlayer videoId={this.state.videoID} videoInfo={this.state.videoInfo} videoComments={this.state.videoComments} postComment = {this.postComment}/>}
+            {this.state.videoID != null && <VideoPlayer videoId={this.state.videoID} videoInfo={this.state.videoInfo} videoComments={this.state.videoComments} postComment = {this.postComment} likeComment={this.likeComment}/>}
           </div>
           <div className="col-md-3">
             <SearchResultsList playVideo={this.playSelectedVideo} results={this.state.searchResults} />
