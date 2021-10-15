@@ -19,12 +19,14 @@ class App extends Component {
       videoInfo: {
         title: "",
         description: ""
-      }
+      },
+      videoComments: []
     }
   }
 
   baseURL = 'https://www.googleapis.com/youtube/v3/'
   searchURL = 'https://www.googleapis.com/youtube/v3/search'
+  commentURL = 'http://127.0.0.1:8000/comments/'
 
   // latestSearchResults =  null
 
@@ -70,6 +72,20 @@ class App extends Component {
     // this.latestSearchResults = [response.data]
     this.setState({
       searchResults: response.data.items
+    })
+  }
+
+  postComment = async (comment) => {
+    const response = await axios.post(this.commentURL, {
+      message: comment.message,
+      video: this.state.videoID
+    })
+  }
+
+  getVideoComments = async (comments) => {
+    const response = await axios.get(`${this.commentURL}${this.state.videoID}/`)
+    this.setState({
+      videoComments: response.data
     })
   }
 
