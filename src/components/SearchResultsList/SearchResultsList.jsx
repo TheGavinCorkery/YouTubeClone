@@ -9,7 +9,7 @@ function SearchResultsList(props) {
             <ListGroup>
                 {props.results.map((video) => {
                     return <ListGroupItem>
-                                <a onClick = {() => props.playVideo(video.id.videoId)}><img src={video.snippet.thumbnails.default.url} alt="thumbnail" /></a>
+                                <a onClick = {() => props.playVideo(video)}><img src={video.snippet.thumbnails.default.url} alt="thumbnail" /></a>
                                 <p>{video.snippet.title}</p>
                             </ListGroupItem>
                             
