@@ -78,10 +78,13 @@ class App extends Component {
   }
 
   postComment = async (comment) => {
-    const response = await axios.post(this.commentURL, {
+    let videoId = this.state.videoID
+    const response = await axios.post(`${this.commentURL}${videoId}/`, {
       message: comment.message,
-      video: comment.videoId
+      video: videoId
     })
+    console.log(comment)
+    this.getVideoComments(videoId)
   }
 
   getVideoComments = async (videoId) => {
@@ -99,7 +102,7 @@ class App extends Component {
         <TitleBar searchResults={this.getSearchResults} />
         <div className="row">
           <div className="col-md-9">
-            {this.state.videoID != null && <VideoPlayer videoId={this.state.videoID} videoInfo={this.state.videoInfo} videoComments={this.state.videoComments} />}
+            {this.state.videoID != null && <VideoPlayer videoId={this.state.videoID} videoInfo={this.state.videoInfo} videoComments={this.state.videoComments} postComment = {this.postComment}/>}
           </div>
           <div className="col-md-3">
             <SearchResultsList playVideo={this.playSelectedVideo} results={this.state.searchResults} />
