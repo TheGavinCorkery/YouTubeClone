@@ -1,3 +1,14 @@
+/* FIGMA COLORS */
+/* BACKGROUND: #000A2F */
+/* SECONDARY: #002090 */
+
+body {
+  background-color: #000a2f;
+  color: white;
+}
+
+
+
 .App {
   text-align: center;
 }
