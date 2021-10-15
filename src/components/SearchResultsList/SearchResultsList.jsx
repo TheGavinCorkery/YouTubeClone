@@ -9,7 +9,8 @@ function SearchResultsList(props) {
                 <ListGroupItem>Test</ListGroupItem>
                 {props.results.map((video) => {
                     return <ListGroupItem>
-                                {video.id.videoId}
+                                <img src={video.snippet.thumbnails.default.url} alt="thumbnail" />
+                                {video.snippet.title}
                             </ListGroupItem>
                 })}
             </ListGroup>

@@ -37,7 +37,8 @@ class App  extends Component {
         q: query,
         key: youtubeAPIKey,
         type: "video",
-        maxResults: 3
+        maxResults: 3,
+        part: "snippet"
       }
     })
     console.log(response.data.items)
