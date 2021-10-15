@@ -1,5 +1,7 @@
 import React from 'react'
+import CommentSection from '../CommentSection/CommentSection';
 import './VideoPlayer.css'
+
 
 const VideoPlayer = (props) => {
 
@@ -17,6 +19,7 @@ const VideoPlayer = (props) => {
                     <p>{props.videoInfo.description}</p>
                 <hr />
             </div>
+            <CommentSection videoId={props.videoId} />
             </div>
         </div>
         
