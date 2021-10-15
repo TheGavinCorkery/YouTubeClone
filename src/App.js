@@ -16,6 +16,7 @@ class App  extends Component {
     this.state = { 
       searchResults: [],
       videoID: null,
+      relatedVideos: [],
      }
   }
 
@@ -23,6 +24,16 @@ class App  extends Component {
   searchURL = 'https://www.googleapis.com/youtube/v3/search'
 
   // latestSearchResults =  null
+
+  playSelectedVideo = (selectedVideoID) => {
+    this.setState({
+      videoID: selectedVideoID
+    })
+  }
+
+  getRelatedVideos = () => {
+
+  }
 
   getSearchResults = async (query) => {
     // const params = {
@@ -54,11 +65,17 @@ class App  extends Component {
   render() { 
     return ( 
       <div className="container-fluid">
-          {console.log(this.state.searchResults)}
         <TitleBar searchResults={this.getSearchResults}/>
-        <SearchResultsList results={this.state.searchResults} />
-        {/* <p>{this.state.searchResults}</p> */}
-        {/* <VideoPlayer videoId = {''}/> */}
+        <div className = "row">
+          <div className = "col-md-3"></div>
+          <div className = "col-md-6">
+            {this.state.videoID != null && <VideoPlayer videoId = {this.state.videoID}/>}
+          </div>
+          <div className = "col-md-3">
+            <SearchResultsList playVideo = {this.playSelectedVideo}results={this.state.searchResults} />
+          </div>
+          {/* <p>{this.state.searchResults}</p> */}
+        </div>
       </div>
 
      );

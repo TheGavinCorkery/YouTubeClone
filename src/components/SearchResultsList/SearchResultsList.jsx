@@ -4,12 +4,11 @@ import { ListGroup, ListGroupItem } from 'react-bootstrap';
 
 function SearchResultsList(props) {
     return ( 
-        <div className="container-fluid">
+        <div className="container" align = "right">
             <ListGroup>
-                <ListGroupItem>Test</ListGroupItem>
                 {props.results.map((video) => {
                     return <ListGroupItem>
-                                <img src={video.snippet.thumbnails.default.url} alt="thumbnail" />
+                                <a onClick = {() => props.playVideo(video.id.videoId)}><img src={video.snippet.thumbnails.default.url} alt="thumbnail" /></a>
                                 {video.snippet.title}
                             </ListGroupItem>
                 })}
