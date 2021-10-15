@@ -8,7 +8,7 @@ const VideoPlayer = (props) => {
     return ( 
         <div>
             <div align = "center">
-                <iframe title = 'video' id="ytplayer" type="text/html" width="640" height="360"
+                <iframe title = 'video' id="ytplayer" type="text/html" width="1080" height="610"
                 src={`https://www.youtube.com/embed/${props.videoId}`}
                 frameborder="0" allowFullScreen/>
                 <div className = "videoMeta" align = "center">
