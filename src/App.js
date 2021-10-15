@@ -10,17 +10,17 @@ import SearchResultsList from './components/SearchResultsList/SearchResultsList'
 
 // URL = `https://www.googleapis.com/youtube/v3/search?q=${searchQuery}&key=${youtubeAPIKey}&type=video&maxResults=3`
 
-class App  extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       searchResults: [],
       videoID: null,
       videoInfo: {
         title: "",
         description: ""
       }
-     }
+    }
   }
 
   baseURL = 'https://www.googleapis.com/youtube/v3/'
@@ -57,11 +57,14 @@ class App  extends Component {
   getSearchResults = async (query) => {
     const response = await axios.get(this.searchURL, {
       params: {
-        q: query,
+        q: query.searchQuery,
         key: youtubeAPIKey,
         type: "video",
         maxResults: 5,
-        part: "snippet"
+        part: "snippet",
+        kind: "youtube#searchListResponse",
+        regionCode: "US",
+        order: "viewCount"
       }
     })
     // this.latestSearchResults = [response.data]
@@ -72,23 +75,23 @@ class App  extends Component {
 
 
 
-  render() { 
-    return ( 
+  render() {
+    return (
       <div className="container-fluid">
-        <TitleBar searchResults={this.getSearchResults}/>
-        <div className = "row">
-          <div className = "col-md-9">
-            {this.state.videoID != null && <VideoPlayer videoId={this.state.videoID} videoInfo={this.state.videoInfo}/>}
+        <TitleBar searchResults={this.getSearchResults} />
+        <div className="row">
+          <div className="col-md-9">
+            {this.state.videoID != null && <VideoPlayer videoId={this.state.videoID} videoInfo={this.state.videoInfo} />}
           </div>
-          <div className = "col-md-3">
-            <SearchResultsList playVideo = {this.playSelectedVideo}results={this.state.searchResults} />
+          <div className="col-md-3">
+            <SearchResultsList playVideo={this.playSelectedVideo} results={this.state.searchResults} />
           </div>
           {/* <p>{this.state.searchResults}</p> */}
         </div>
       </div>
 
-     );
+    );
   }
 }
- 
-export default App ;
+
+export default App;
