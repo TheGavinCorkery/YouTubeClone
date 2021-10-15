@@ -39,6 +39,8 @@ class App extends Component {
       }
     })
     this.getRelatedVideos(video.id.videoId)
+    this.getVideoComments(video.id.videoId)
+    console.log(video.id.videoId)
   }
 
   getRelatedVideos = async (videoID) => {
@@ -82,8 +84,8 @@ class App extends Component {
     })
   }
 
-  getVideoComments = async (video) => {
-    const response = await axios.get(`${this.commentURL}${video.id.videoId}/`)
+  getVideoComments = async (videoId) => {
+    const response = await axios.get(`${this.commentURL}${videoId}/`)
     this.setState({
       videoComments: response.data
     })
@@ -97,7 +99,7 @@ class App extends Component {
         <TitleBar searchResults={this.getSearchResults} />
         <div className="row">
           <div className="col-md-9">
-            {this.state.videoID != null && <VideoPlayer videoId={this.state.videoID} videoInfo={this.state.videoInfo} />}
+            {this.state.videoID != null && <VideoPlayer videoId={this.state.videoID} videoInfo={this.state.videoInfo} videoComments={this.state.videoComments} />}
           </div>
           <div className="col-md-3">
             <SearchResultsList playVideo={this.playSelectedVideo} results={this.state.searchResults} />
