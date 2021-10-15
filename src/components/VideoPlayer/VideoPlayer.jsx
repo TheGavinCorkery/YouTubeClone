@@ -1,4 +1,5 @@
 import React from 'react'
+import './VideoPlayer.css'
 
 const VideoPlayer = (props) => {
 
@@ -6,16 +7,16 @@ const VideoPlayer = (props) => {
 
     return ( 
         <div>
-            <div>
+            <div align = "center">
                 <iframe title = 'video' id="ytplayer" type="text/html" width="640" height="360"
                 src={`https://www.youtube.com/embed/${props.videoId}`}
                 frameborder="0" allowFullScreen/>
+                <div className = "videoMeta" align = "center">
+                    <h3>{props.videoInfo.title}</h3>
+                    <hr />
+                    <p>{props.videoInfo.description}</p>
+                <hr />
             </div>
-            <div>
-                <h3>{props.videoInfo.title}</h3>
-                <hr />
-                <p>{props.videoInfo.description}</p>
-                <hr />
             </div>
         </div>
         

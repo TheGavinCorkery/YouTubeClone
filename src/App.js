@@ -77,7 +77,7 @@ class App  extends Component {
       <div className="container-fluid">
         <TitleBar searchResults={this.getSearchResults}/>
         <div className = "row">
-          <div className = "col-md-6">
+          <div className = "col-md-9">
             {this.state.videoID != null && <VideoPlayer videoId={this.state.videoID} videoInfo={this.state.videoInfo}/>}
           </div>
           <div className = "col-md-3">

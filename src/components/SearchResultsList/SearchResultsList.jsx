@@ -12,9 +12,6 @@ function SearchResultsList(props) {
                                 <a onClick = {() => props.playVideo(video)}><img src={video.snippet.thumbnails.default.url} alt="thumbnail" /></a>
                                 <p>{video.snippet.title}</p>
                             </ListGroupItem>
-                            
-                            
-                            
                 })}
             </ListGroup>
         </div>
