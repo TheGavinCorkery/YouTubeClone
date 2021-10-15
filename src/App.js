@@ -98,6 +98,17 @@ class App extends Component {
     }
   }
 
+  likeComment = async (vote, commentId) => {
+    try {
+      await axios.patch(`${this.commentURL}${commentId}/${vote}`)
+      this.getVideoComments(this.state.videoID)
+    }
+    catch(err){
+    console.log("🚀 ~ file: App.js ~ line 106 ~ App ~ likeComment= ~ err", err)
+    }
+    
+  }
+
   getVideoComments = async (videoId) => {
     try {
       const response = await axios.get(`${this.commentURL}${videoId}/`)
@@ -111,13 +122,14 @@ class App extends Component {
   }
 
 
+
   render() {
     return (
       <div className="container-fluid">
         <TitleBar searchResults={this.getSearchResults} />
         <div className="row">
           <div className="col-md-9">
-            {this.state.videoID != null && <VideoPlayer videoId={this.state.videoID} videoInfo={this.state.videoInfo} videoComments={this.state.videoComments} postComment = {this.postComment}/>}
+            {this.state.videoID != null && <VideoPlayer videoId={this.state.videoID} videoInfo={this.state.videoInfo} videoComments={this.state.videoComments} postComment = {this.postComment} likeComment={this.likeComment}/>}
           </div>
           <div className="col-md-3">
             <SearchResultsList playVideo={this.playSelectedVideo} results={this.state.searchResults} />
