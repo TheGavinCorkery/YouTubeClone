@@ -16,7 +16,6 @@ class App  extends Component {
     this.state = { 
       searchResults: [],
       videoID: null,
-      relatedVideos: [],
      }
   }
 
@@ -29,31 +28,34 @@ class App  extends Component {
     this.setState({
       videoID: selectedVideoID
     })
+    this.getRelatedVideos(selectedVideoID)
   }
 
-  getRelatedVideos = () => {
-
+  getRelatedVideos = async (videoID) => {
+    const response = await axios.get(this.searchURL, {
+      params: {
+        key: youtubeAPIKey,
+        type: "video",
+        maxResults: 5,
+        part: "snippet",
+        relatedToVideoId: videoID,
+      }
+    })
+    this.setState({
+      searchResults: response.data.items
+    })
   }
 
   getSearchResults = async (query) => {
-    // const params = {
-    //   "q": query,
-    //   "key": youtubeAPIKey,
-    //   "type": "video",
-    //   "maxResults": 3
-    // }
-    // let response = await axios.get(`${this.URL}search?${params}`)
     const response = await axios.get(this.searchURL, {
       params: {
         q: query,
         key: youtubeAPIKey,
         type: "video",
-        maxResults: 3,
+        maxResults: 5,
         part: "snippet"
       }
     })
-    console.log(response.data.items)
-    console.log(response.data.items[0].id.videoId)
     // this.latestSearchResults = [response.data]
     this.setState({
       searchResults: response.data.items

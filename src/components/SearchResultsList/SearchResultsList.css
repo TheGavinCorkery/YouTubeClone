@@ -1,0 +1,7 @@
+a {
+    float: left !important;
+}
+
+ListGroupItem {
+    display: inline-block !important;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import './SearchResultsList.css'
 
 
 function SearchResultsList(props) {
@@ -9,8 +10,11 @@ function SearchResultsList(props) {
                 {props.results.map((video) => {
                     return <ListGroupItem>
                                 <a onClick = {() => props.playVideo(video.id.videoId)}><img src={video.snippet.thumbnails.default.url} alt="thumbnail" /></a>
-                                {video.snippet.title}
+                                <p>{video.snippet.title}</p>
                             </ListGroupItem>
+                            
+                            
+                            
                 })}
             </ListGroup>
         </div>
