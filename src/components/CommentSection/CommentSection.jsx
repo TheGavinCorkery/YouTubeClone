@@ -3,15 +3,25 @@ import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import Comments from './Comments';
 import CommentForm from './CommentForm';
 import './Comment.css'
+import Accordion from 'react-bootstrap/Accordion';
 
 function CommentSection(props) {
     return ( 
 
         <div className = "commentSection">
-            <CommentForm postComment = {props.postComment} videoId = {props.videoId}/>
-            <Card>
-                    <Comments replies = {props.replies} getReplies = {props.getReplies} postReply = {props.postReply} videoId={props.videoId} videoComments={props.videoComments} likeComment={props.likeComment} />
-            </Card>
+            <Accordion>
+                <Accordion.Item eventKey="0">
+                    <Accordion.Header>
+                        <h6 className="text-white"> Comments </h6>
+                    </Accordion.Header>
+                    <Accordion.Body>
+                            <CommentForm postComment = {props.postComment} videoId = {props.videoId}/>
+                            <Card>
+                                    <Comments replies = {props.replies} getReplies = {props.getReplies} postReply = {props.postReply} videoId={props.videoId} videoComments={props.videoComments} likeComment={props.likeComment} />
+                            </Card>
+                    </Accordion.Body>
+                </Accordion.Item>
+            </Accordion>
         </div>
      );
 }

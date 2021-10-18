@@ -1,6 +1,7 @@
 import React from 'react'
 import CommentSection from '../CommentSection/CommentSection';
 import './VideoPlayer.css'
+import Accordion from 'react-bootstrap/Accordion';
 
 
 const VideoPlayer = (props) => {
@@ -16,14 +17,22 @@ const VideoPlayer = (props) => {
                 <div className = "videoMeta" align = "center">
                     <h3>{props.videoInfo.title}</h3>
                     <hr />
-                    <p>{props.videoInfo.description}</p>
-                <hr />
-            </div>
+                    <Accordion>
+                        <Accordion.Item eventKey="0">
+                            <Accordion.Header>
+                                <h6 className="text-white"> Description </h6>
+                            </Accordion.Header>
+                            <Accordion.Body>
+                                 <p>{props.videoInfo.description}</p>        
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    </Accordion>
+                    <hr />
+                </div>
             <CommentSection postReply = {props.postReply} videoId={props.videoId} videoComments={props.videoComments} postComment = {props.postComment} 
             likeComment={props.likeComment} replies = {props.replies} getReplies = {props.getReplies}/>
             </div>
         </div>
-        
      );
 }
  
