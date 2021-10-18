@@ -1,3 +1,11 @@
 .commentSection{
     width: 1080px
 }
+
+.replies {
+    float:right;
+}
+
+.flex-row-reverse {
+    text-align: center !important;
+}

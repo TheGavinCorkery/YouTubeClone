@@ -1,17 +1,17 @@
 import axios from 'axios';
 import React from 'react';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import { ListGroup,Card, CardBody, ListGroupItem } from 'react-bootstrap';
 
 const Replies = (props) => {
 
     return ( 
-        <ListGroup>
+        <Card>
             
                 {props.replies.map((reply) => {
-                    return <ListGroupItem>{reply.message}</ListGroupItem>
+                    return <Card.Body>{reply.message}</Card.Body>
                 })}
             
-        </ListGroup>
+        </Card>
      );
 }
  

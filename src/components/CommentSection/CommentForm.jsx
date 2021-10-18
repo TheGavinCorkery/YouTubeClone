@@ -27,8 +27,9 @@ const CommentForm = (props) => {
                         aria-label='Comment'
                         name='message'
                         onChange={handleChange}
+                        size= "sm"
                     />
-                    <Button className="btn btn-primary" type='submit'>Post Comment</Button>
+                    <Button className="btn btn-primary" type='submit' size = "sm">Post Comment</Button>
             </Form>
         </div>
      );
