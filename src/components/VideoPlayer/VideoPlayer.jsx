@@ -9,12 +9,16 @@ const VideoPlayer = (props) => {
 
 
     return ( 
-        <div>
+        <div className="p-4">
             <div align = "center">
                 <iframe title = 'video' id="ytplayer" type="text/html" width="1080" height="610"
                 src={`https://www.youtube.com/embed/${props.videoId}`}
                 frameborder="0" allowFullScreen/>
                 <div className = "videoMeta" align = "center">
+                    <p className="text-left text-light account" align="left">
+                    <span className="material-icons p-2 account">account_circle</span>
+                        {props.videoInfo.channel}
+                    </p>
                     <h3>{props.videoInfo.title}</h3>
                     <hr />
                     <Accordion>

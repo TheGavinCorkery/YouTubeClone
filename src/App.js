@@ -32,8 +32,10 @@ class App extends Component {
       videoID: video.id.videoId,
       videoInfo: {
         title: video.snippet.title,
-        description: video.snippet.description
-      }
+        description: video.snippet.description,
+        channel: video.snippet.channelTitle
+      },
+      replies: []
     })
     this.getRelatedVideos(video.id.videoId)
     this.getVideoComments(video.id.videoId)
