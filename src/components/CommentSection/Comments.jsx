@@ -1,9 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import CommentForm from './CommentForm';
+import Replies from './Replies';
 
 
 function Comments(props) {
+
+    const[showReplies, setShowReplies] = useState(false)
+
+    let handleReplies = (commentId) => {
+        props.getReplies(commentId);
+        setShowReplies(true)
+    }
+
     return ( 
 
         <ListGroup>
@@ -24,10 +33,14 @@ function Comments(props) {
                                     {comment.dislikes}
                                 </p>
                             
+                            {/* <button className = "btn btn-primary" onClick = {(event) => handleReplies(comment.id)}>Replies</button>              */}
+                            
                             </div>
+                            <Replies replies = {props.replies} commentId = {comment.id}/>
                             <p className="text-justify">{comment.message}</p>
                         </ListGroupItem>
             })}
+            
         </ListGroup>
      );
 }

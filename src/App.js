@@ -17,7 +17,8 @@ class App extends Component {
         title: "",
         description: ""
       },
-      videoComments: []
+      videoComments: [],
+      replies: []
     }
   }
 
@@ -108,6 +109,17 @@ class App extends Component {
     }
   } 
 
+  getReplies = async(commentId) => {
+    try{
+        let replies = await axios.get(`http://127.0.0.1:8000/replies/${commentId}`)
+        this.setState({
+          replies: replies.data
+        })
+    }catch (err) {
+        console.log('Error in getting comment replies', err)
+    }
+}
+
   likeComment = async (vote, commentId) => {
     try {
       await axios.patch(`${this.commentURL}${commentId}/${vote}`)
@@ -118,7 +130,6 @@ class App extends Component {
     }
     
   }
-
   getVideoComments = async (videoId) => {
     try {
       const response = await axios.get(`${this.commentURL}${videoId}/`)
@@ -139,7 +150,7 @@ class App extends Component {
         <TitleBar searchResults={this.getSearchResults} />
         <div className="row">
           <div className="col-md-9">
-            {this.state.videoID != null && <VideoPlayer postReply = {this.postReply} videoId={this.state.videoID} videoInfo={this.state.videoInfo} videoComments={this.state.videoComments} postComment = {this.postComment} likeComment={this.likeComment}/>}
+            {this.state.videoID != null && <VideoPlayer replies = {this.state.replies} getReplies = {this.getReplies} postReply = {this.postReply} videoId={this.state.videoID} videoInfo={this.state.videoInfo} videoComments={this.state.videoComments} postComment = {this.postComment} likeComment={this.likeComment}/>}
           </div>
           <div className="col-md-3">
             <SearchResultsList playVideo={this.playSelectedVideo} results={this.state.searchResults} />

@@ -10,7 +10,7 @@ function CommentSection(props) {
         <div className = "commentSection">
             <CommentForm postComment = {props.postComment} videoId = {props.videoId}/>
             <Card>
-                    <Comments postReply = {props.postReply} videoId={props.videoId} videoComments={props.videoComments} likeComment={props.likeComment} />
+                    <Comments replies = {props.replies} getReplies = {props.getReplies} postReply = {props.postReply} videoId={props.videoId} videoComments={props.videoComments} likeComment={props.likeComment} />
             </Card>
         </div>
      );
