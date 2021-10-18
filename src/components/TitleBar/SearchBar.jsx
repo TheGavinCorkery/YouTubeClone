@@ -35,7 +35,7 @@ function SearchBar(props) {
                         name='searchQuery'
                         onChange={handleChange}
                     />
-                    <Button className="btn" type='submit' variant="outline-success">Search</Button>
+                    <Button className="btn btn-danger" type='submit'>Search</Button>
                 </Form>
             </div>
             
