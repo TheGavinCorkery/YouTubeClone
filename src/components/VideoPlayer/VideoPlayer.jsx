@@ -19,7 +19,7 @@ const VideoPlayer = (props) => {
                     <p>{props.videoInfo.description}</p>
                 <hr />
             </div>
-            <CommentSection videoId={props.videoId} videoComments={props.videoComments} postComment = {props.postComment} 
+            <CommentSection postReply = {props.postReply} videoId={props.videoId} videoComments={props.videoComments} postComment = {props.postComment} 
             likeComment={props.likeComment}/>
             </div>
         </div>

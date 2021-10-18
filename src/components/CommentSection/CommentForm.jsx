@@ -13,8 +13,7 @@ const CommentForm = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        props.postComment(comment)
-        // todo: pass keyword to app.jsx for axios request
+        props.postComment(comment, props.commentId)
     }
 
 

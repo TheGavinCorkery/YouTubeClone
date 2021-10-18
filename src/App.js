@@ -86,7 +86,7 @@ class App extends Component {
   postComment = async (comment) => {
     try {
       let videoId = this.state.videoID
-      const response = await axios.post(`${this.commentURL}${videoId}/`, {
+      await axios.post(`${this.commentURL}${videoId}/`, {
         message: comment.message,
         video: videoId
       })
@@ -97,6 +97,16 @@ class App extends Component {
       console.log("🚀 ~ file: App.js ~ line 103 ~ App ~ postComment= ~ err", err)
     }
   }
+
+  postReply = async (reply, commentId) => {
+    try{
+      await axios.post(`${this.commentURL}reply/${commentId}`, {
+        message: reply.message
+      })
+    }catch (err) {
+      console.log("🚀 ~ file: App.js ~ line 103 ~ App ~ postComment= ~ err", err)
+    }
+  } 
 
   likeComment = async (vote, commentId) => {
     try {
@@ -129,7 +139,7 @@ class App extends Component {
         <TitleBar searchResults={this.getSearchResults} />
         <div className="row">
           <div className="col-md-9">
-            {this.state.videoID != null && <VideoPlayer videoId={this.state.videoID} videoInfo={this.state.videoInfo} videoComments={this.state.videoComments} postComment = {this.postComment} likeComment={this.likeComment}/>}
+            {this.state.videoID != null && <VideoPlayer postReply = {this.postReply} videoId={this.state.videoID} videoInfo={this.state.videoInfo} videoComments={this.state.videoComments} postComment = {this.postComment} likeComment={this.likeComment}/>}
           </div>
           <div className="col-md-3">
             <SearchResultsList playVideo={this.playSelectedVideo} results={this.state.searchResults} />

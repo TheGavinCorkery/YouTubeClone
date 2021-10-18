@@ -1,5 +1,6 @@
 import React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import CommentForm from './CommentForm';
 
 
 function Comments(props) {
@@ -9,6 +10,7 @@ function Comments(props) {
             {props.videoComments.map((comment) => {
                 return   <ListGroupItem>
                             <div className="d-flex flex-row-reverse">
+                            <CommentForm  videoId = {props.videoId} postComment = {props.postReply} commentId={comment.id}/>
                                 <p>
                                     <button className="btn" onClick={() => props.likeComment(`thumbs_up`, comment.id)}>
                                         <span className="material-icons">thumb_up</span>
@@ -21,6 +23,7 @@ function Comments(props) {
                                     </button>
                                     {comment.dislikes}
                                 </p>
+                            
                             </div>
                             <p className="text-justify">{comment.message}</p>
                         </ListGroupItem>
