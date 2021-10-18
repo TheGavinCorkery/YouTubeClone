@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Navbar, Form, FormControl } from "react-bootstrap";
-
+import './TitleBar.css'
 
 function SearchBar(props) {
 
@@ -21,8 +21,12 @@ function SearchBar(props) {
 
     return ( 
         <div className="row">
-            <div className="col-md-4" align="left">
-                <h2>vid.io</h2>
+            <div className="col-md-4">
+                <div className="navbar">
+                    <h2>
+                        <span class="material-icons">play_circle_filled</span> vid.io
+                    </h2>
+                </div>
             </div>
             <div className = "col-md-4" align= "center">
                 <Form className="d-flex" onSubmit={handleSubmit}>
@@ -40,8 +44,9 @@ function SearchBar(props) {
                     </Button>
                 </Form>
             </div>
-            
+            <div className="col-md-4"></div>
         </div>
+        
      );
 }
 

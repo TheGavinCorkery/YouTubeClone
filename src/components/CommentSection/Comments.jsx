@@ -42,6 +42,7 @@ function Comments(props) {
                             
                             <br />
                             <CommentForm  videoId = {props.videoId} postComment = {props.postReply} commentId={comment.id}/>
+                            <hr />
                             
                         </ListGroupItem>
             })}

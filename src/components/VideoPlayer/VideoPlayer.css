@@ -1,3 +1,9 @@
 .videoMeta {
     width: 1080px !important;
 }
+
+.account{
+    font-size: 1.8rem;
+    vertical-align: text-top;
+}
+
