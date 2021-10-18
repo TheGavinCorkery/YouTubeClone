@@ -29,13 +29,15 @@ function SearchBar(props) {
                     
                     <FormControl 
                         type="text"
-                        placeholder="Search..."
+                        placeholder="Search for a video..."
                         className="mr-2 form-control"
                         aria-label='Search'
                         name='searchQuery'
                         onChange={handleChange}
                     />
-                    <Button className="btn btn-danger" type='submit'>Search</Button>
+                    <Button className="btn btn-primary" type='submit'>
+                        <span class="material-icons">search</span>
+                    </Button>
                 </Form>
             </div>
             
