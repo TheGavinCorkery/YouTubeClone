@@ -19,25 +19,25 @@ function Comments(props) {
             <div className = "col-md-9">
         <ListGroup>
             {props.videoComments.map((comment) => {
-                return   <ListGroupItem>
+                return   <ListGroupItem className="bg-primary text-white">
                             <div className="d-flex flex-row justify-content-between">
                             <div className = "d-flex flex-row justify-content-between">
                                 <p>
                                     <button className="btn" onClick={() => props.likeComment(`thumbs_up`, comment.id)}>
-                                        <span className="material-icons">thumb_up</span>
+                                        <span className="material-icons text-success">thumb_up</span>
                                     </button>
                                     {comment.likes}
                                 </p>
                                 
                                 <p>
                                     <button className="btn" onClick={() => props.likeComment(`thumbs_down`, comment.id)}>
-                                        <span className="material-icons">thumb_down</span>
+                                        <span className="material-icons text-danger">thumb_down</span>
                                     </button>
                                     {comment.dislikes}
                                 </p>
                             </div>
                                 <p>{comment.message}</p>
-                                <button className = "btn btn-sm btn-outline-success" onClick = {(event) => handleReplies(comment.id)}>Replies</button>
+                                <button className = "btn btn-sm btn-info" onClick = {(event) => handleReplies(comment.id)}>Replies</button>
                             </div>
                             
                             <br />
