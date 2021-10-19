@@ -29,7 +29,7 @@ const CommentForm = (props) => {
                         onChange={handleChange}
                         size= "sm"
                     />
-                    <Button className="btn btn-secondary" type='submit' size = "sm">Post Comment</Button>
+                    <Button className="btn btn-secondary" type='submit' size = "sm">{props.buttonText}</Button>
             </Form>
         </div>
      );

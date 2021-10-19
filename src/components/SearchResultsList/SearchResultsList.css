@@ -10,6 +10,7 @@ ListGroupItem {
     flex-direction: row !important;
     width: auto !important;
     align-items: center;
+    margin-left: -25px !important
 }
 
 .img {

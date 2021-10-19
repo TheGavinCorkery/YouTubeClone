@@ -47,7 +47,7 @@ function Comments(props) {
                                         <Accordion.Item eventKey="1">
                                             <Accordion.Header>Replies</Accordion.Header>
                                             <Accordion.Body>
-                                                <CommentForm  videoId = {props.videoId} postComment = {props.postReply} commentId={comment.id}/>
+                                                <CommentForm  buttonText = "Reply"videoId = {props.videoId} postComment = {props.postReply} commentId={comment.id}/>
                                                 {props.replies.filter(reply => reply.comment === comment.id)
                                                         .map((reply) => (
                                                             <p>{reply.message}</p>
