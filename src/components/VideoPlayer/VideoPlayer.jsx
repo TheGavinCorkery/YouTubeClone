@@ -19,7 +19,7 @@ const VideoPlayer = (props) => {
                     <span className="material-icons p-2 account">account_circle</span>
                         {props.videoInfo.channel}
                     </p>
-                    <h3>{props.videoInfo.title}</h3>
+                    <h4>{props.videoInfo.title}</h4>
                     <hr />
                     <Accordion>
                         <Accordion.Item eventKey="0">
