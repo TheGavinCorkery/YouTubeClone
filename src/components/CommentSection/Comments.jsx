@@ -56,7 +56,7 @@ function Comments(props) {
                                     <Accordion.Item eventKey="1">
                                         <Accordion.Header>
                                             <p className="text-white">
-                                                <span class="material-icons">reply</span>
+                                                <span className="comment-photo material-icons">reply</span>
                                                     Replies 
                                             </p>
                                         </Accordion.Header>
@@ -65,7 +65,7 @@ function Comments(props) {
                                             {props.replies.filter(reply => reply.comment === comment.id)
                                                     .map((reply) => (
                                                         <p className="d-flex justify-content-start p-3">
-                                                            <span class="material-icons px-3">person</span>
+                                                            <span className="comment-photo material-icons px-3">person</span>
                                                             {comment.message}
                                                         </p> 
                                                     ))
