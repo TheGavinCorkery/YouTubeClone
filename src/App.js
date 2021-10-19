@@ -148,7 +148,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         <TitleBar searchResults={this.getSearchResults} />
         <div className="row">
           <div className="col-md-9">
