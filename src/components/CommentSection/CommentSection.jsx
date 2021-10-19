@@ -15,7 +15,7 @@ function CommentSection(props) {
                         <h6 className="text-white"> Comments </h6>
                     </Accordion.Header>
                     <Accordion.Body>
-                            <CommentForm buttonText = "Comment"postComment = {props.postComment} videoId = {props.videoId}/>
+                            <CommentForm postComment = {props.postComment} videoId = {props.videoId}/>
                             <Card>
                                     <Comments replies = {props.replies} postReply = {props.postReply} videoId={props.videoId} videoComments={props.videoComments} likeComment={props.likeComment} />
                             </Card>
