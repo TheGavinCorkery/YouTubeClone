@@ -5115,7 +5115,7 @@ fieldset:disabled .btn {
   word-wrap: break-word;
   background-color: #000a2f;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid #000a2f;
   border-radius: 0.25rem;
 }
 
@@ -5365,7 +5365,7 @@ fieldset:disabled .btn {
 
 .accordion-item {
   background-color: #000a2f;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid #000a2f;
 }
 
 .accordion-item:first-of-type {
