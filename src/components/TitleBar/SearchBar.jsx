@@ -28,13 +28,12 @@ function SearchBar(props) {
                     </h2>
                 </div>
             </div>
-            <div className = "col-md-4" align= "center">
+            <div className = "col-md-4 align-self-center" align= "center">
                 <Form className="d-flex" onSubmit={handleSubmit}>
                     
                     <FormControl 
                         type="text"
                         placeholder="Search for a video..."
-                        className="mr-2 form-control"
                         aria-label='Search'
                         name='searchQuery'
                         onChange={handleChange}
