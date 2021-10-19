@@ -39,7 +39,9 @@ function Comments(props) {
                                         {comment.dislikes}
                                     </p>
                                 </div>
+                                
                                 <p>{comment.message}</p>
+                            </div>
                                 <div>
                                     <Accordion>
                                         <Accordion.Item eventKey="1">
@@ -55,7 +57,6 @@ function Comments(props) {
                                         </Accordion.Item>
                                     </Accordion>
                                 </div>
-                            </div>
                             
                             <br />
                             <hr />
