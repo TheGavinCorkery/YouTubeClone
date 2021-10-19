@@ -21,6 +21,7 @@ const VideoPlayer = (props) => {
                     </p>
                     <h3>{props.videoInfo.title}</h3>
                     <p>Views: {props.videoInfo.views}</p>
+
                     <hr />
                     <Accordion>
                         <Accordion.Item eventKey="0">
