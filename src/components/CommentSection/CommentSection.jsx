@@ -17,7 +17,7 @@ function CommentSection(props) {
                     <Accordion.Body>
                             <CommentForm postComment = {props.postComment} videoId = {props.videoId}/>
                             <Card>
-                                    <Comments replies = {props.replies} getReplies = {props.getReplies} postReply = {props.postReply} videoId={props.videoId} videoComments={props.videoComments} likeComment={props.likeComment} />
+                                    <Comments replies = {props.replies} postReply = {props.postReply} videoId={props.videoId} videoComments={props.videoComments} likeComment={props.likeComment} />
                             </Card>
                     </Accordion.Body>
                 </Accordion.Item>
