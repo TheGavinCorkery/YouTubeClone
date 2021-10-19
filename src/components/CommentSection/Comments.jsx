@@ -66,7 +66,7 @@ function Comments(props) {
                                                     .map((reply) => (
                                                         <p className="d-flex justify-content-start p-3">
                                                             <span className="comment-photo material-icons px-3">person</span>
-                                                            {comment.message}
+                                                            {reply.message}
                                                         </p> 
                                                     ))
                                                 }

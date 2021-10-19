@@ -101,7 +101,6 @@ class App extends Component {
       })
       console.log(comment)
       this.getVideoComments(videoId)
-      this.getReplies(videoId)
     }
     catch(err){
       console.log("🚀 ~ file: App.js ~ line 103 ~ App ~ postComment= ~ err", err)
@@ -113,6 +112,7 @@ class App extends Component {
       await axios.post(`${this.commentURL}reply/${commentId}`, {
         message: reply.message
       })
+      this.getReplies(this.state.videoID)
     }catch (err) {
       console.log("🚀 ~ file: App.js ~ line 103 ~ App ~ postComment= ~ err", err)
     }
