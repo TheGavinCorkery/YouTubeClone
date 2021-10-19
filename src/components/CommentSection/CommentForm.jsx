@@ -14,6 +14,9 @@ const CommentForm = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         props.postComment(comment, props.commentId)
+        setComment(() => ({
+            message: ''
+        }))
     }
 
 
@@ -28,6 +31,7 @@ const CommentForm = (props) => {
                         name='message'
                         onChange={handleChange}
                         size= "sm"
+                        value={comment.message}
                     />
                     <Button className="btn btn-secondary" type='submit' size = "sm">{props.buttonText}</Button>
             </Form>
