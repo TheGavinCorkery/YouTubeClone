@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
-import { Card, CardBody, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import CommentForm from './CommentForm';
 import Replies from './Replies';
 import './Comment.css'
 import Accordion from 'react-bootstrap/Accordion';
+import Card from 'react-bootstrap/Card';
 
 
 function Comments(props) {
@@ -45,14 +46,22 @@ function Comments(props) {
                                 <div>
                                     <Accordion>
                                         <Accordion.Item eventKey="1">
-                                            <Accordion.Header>Replies</Accordion.Header>
+                                            <Accordion.Header>
+                                                <p className="text-white"> Replies </p>
+                                            </Accordion.Header>
                                             <Accordion.Body>
                                                 <CommentForm  videoId = {props.videoId} postComment = {props.postReply} commentId={comment.id}/>
-                                                {props.replies.filter(reply => reply.comment === comment.id)
-                                                        .map((reply) => (
-                                                            <p>{reply.message}</p>
-                                                        ))
-                                                    }
+                                                <Card>
+                                                    <ListGroup>
+                                                        {props.replies.filter(reply => reply.comment === comment.id)
+                                                                .map((reply) => (
+                                                                    <ListGroupItem>
+                                                                        <p>{reply.message}</p>
+                                                                    </ListGroupItem>
+                                                                ))
+                                                            }
+                                                    </ListGroup>
+                                                </Card>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>
