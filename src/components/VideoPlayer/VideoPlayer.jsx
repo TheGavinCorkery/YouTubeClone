@@ -2,7 +2,6 @@ import React from 'react'
 import CommentSection from '../CommentSection/CommentSection';
 import './VideoPlayer.css'
 import Accordion from 'react-bootstrap/Accordion';
-import Badge from 'react-bootstrap/Badge'
 
 
 function numFormatter(num) {
@@ -16,8 +15,6 @@ function numFormatter(num) {
 }
 
 const VideoPlayer = (props) => {
-
-
     return ( 
         <div className="p-4">
             <div align = "center">
@@ -35,13 +32,8 @@ const VideoPlayer = (props) => {
                             <span className="material-icons text-danger ms-3">thumb_down</span> {numFormatter(props.videoInfo.dislikes)}
                         </p>
                         <p className = "account" align = "right">Views: {numFormatter(props.videoInfo.views)}</p>
-                        
                     </div>
-                    
-                    
-                    
-                    <h3>{props.videoInfo.title}</h3>
-
+                    <h4>{props.videoInfo.title}</h4>
                     <hr />
                     <Accordion>
                         <Accordion.Item eventKey="0">
