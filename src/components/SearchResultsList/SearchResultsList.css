@@ -9,6 +9,7 @@ ListGroupItem {
 .thumbnail {
     flex-direction: row !important;
     width: auto !important;
+    align-items: center;
 }
 
 .img {
@@ -18,6 +19,5 @@ ListGroupItem {
 }
 
 .text {
-    margin-top: 30px !important;
     margin-left: 10px !important
 }
