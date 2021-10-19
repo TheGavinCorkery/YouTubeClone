@@ -18,6 +18,8 @@ class App extends Component {
         description: "",
         views: "",
         channelTitle: "",
+        likes: "",
+        dislikes: ""
       },
       videoComments: [],
       replies: []
@@ -158,7 +160,9 @@ class App extends Component {
           title: this.state.videoInfo.title,
           description: this.state.videoInfo.description,
           channelTitle: this.state.videoInfo.channelTitle,
-          views: response.data.items[0].statistics.viewCount
+          views: response.data.items[0].statistics.viewCount,
+          likes: response.data.items[0].statistics.likeCount,
+          dislikes: response.data.items[0].statistics.dislikeCount
         }
       })
     } catch (err) {
