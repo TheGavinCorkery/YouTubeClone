@@ -40,27 +40,41 @@ function Comments(props) {
                                         {comment.dislikes}
                                     </p>
                                 </div>
-                                
-                                <p>{comment.message}</p>
                             </div>
-                                <div>
-                                    <Accordion>
-                                        <Accordion.Item eventKey="1">
-                                            <Accordion.Header>
-                                                <p className="text-white"> Replies </p>
-                                            </Accordion.Header>
-                                            <Accordion.Body>
-                                                <CommentForm  buttonText = "Reply" videoId = {props.videoId} postComment = {props.postReply} commentId={comment.id}/>
-                                                {props.replies.filter(reply => reply.comment === comment.id)
-                                                        .map((reply) => (
-                                                            <p>{reply.message}</p>
-                                                        ))
-                                                    }
-                                            </Accordion.Body>
-                                        </Accordion.Item>
-                                    </Accordion>
-                                </div>
-                            
+                            <div>
+                                <Card>
+                                        <Card.Body>
+                                            <p className="d-flex justify-content-start">
+                                                <span class="material-icons px-3">person</span>
+                                                {comment.message}
+                                            </p>    
+                                        </Card.Body>
+                                </Card>
+                            </div>
+                            <div>
+                                <Accordion>
+                                    <Accordion.Item eventKey="1">
+                                        <Accordion.Header>
+                                            <p className="text-white">
+                                                <span class="material-icons">reply</span>
+                                                    Replies 
+                                            </p>
+                                        </Accordion.Header>
+                                        <Accordion.Body>
+                                            <CommentForm  buttonText = "Reply" videoId = {props.videoId} postComment = {props.postReply} commentId={comment.id}/>
+                                            {props.replies.filter(reply => reply.comment === comment.id)
+                                                    .map((reply) => (
+                                                        <p className="d-flex justify-content-start p-3">
+                                                            <span class="material-icons px-3">person</span>
+                                                            {comment.message}
+                                                        </p> 
+                                                    ))
+                                                }
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                </Accordion>
+                            </div>
+                        
                             <br />
                             <hr />
                             

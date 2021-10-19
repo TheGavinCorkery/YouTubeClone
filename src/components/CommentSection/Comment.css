@@ -9,3 +9,7 @@
 .flex-row-reverse {
     text-align: center !important;
 }
+
+.material-icons {
+    vertical-align: text-bottom;
+}
