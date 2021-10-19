@@ -50,18 +50,12 @@ function Comments(props) {
                                                 <p className="text-white"> Replies </p>
                                             </Accordion.Header>
                                             <Accordion.Body>
-                                                <CommentForm  videoId = {props.videoId} postComment = {props.postReply} commentId={comment.id}/>
-                                                <Card>
-                                                    <ListGroup>
-                                                        {props.replies.filter(reply => reply.comment === comment.id)
-                                                                .map((reply) => (
-                                                                    <ListGroupItem>
-                                                                        <p>{reply.message}</p>
-                                                                    </ListGroupItem>
-                                                                ))
-                                                            }
-                                                    </ListGroup>
-                                                </Card>
+                                                <CommentForm  buttonText = "Reply"videoId = {props.videoId} postComment = {props.postReply} commentId={comment.id}/>
+                                                {props.replies.filter(reply => reply.comment === comment.id)
+                                                        .map((reply) => (
+                                                            <p>{reply.message}</p>
+                                                        ))
+                                                    }
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>
