@@ -5,6 +5,7 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 code {
@@ -12,4 +13,13 @@ code {
     monospace;
 }
 
-
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background-color:#03208a5d;
+}
+::-webkit-scrollbar-thumb {
+  background-color:#001f90f8;
+  border-radius: 100px;
+}
