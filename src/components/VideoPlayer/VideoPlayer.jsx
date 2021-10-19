@@ -19,8 +19,8 @@ const VideoPlayer = (props) => {
                     <span className="material-icons p-2 account">account_circle</span>
                         {props.videoInfo.channelTitle}
                     </p>
+                    <p className="text-right text-light account" align = "right">Views: {props.videoInfo.views}</p>
                     <h3>{props.videoInfo.title}</h3>
-                    <p>Views: {props.videoInfo.views}</p>
 
                     <hr />
                     <Accordion>
