@@ -1,22 +1,12 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import CommentForm from './CommentForm';
-import Replies from './Replies';
 import './Comment.css'
 import Accordion from 'react-bootstrap/Accordion';
 import Card from 'react-bootstrap/Card';
 
 
 function Comments(props) {
-
-    const[showReplies, setShowReplies] = useState(false)
-    
-    
-    let handleReplies = (commentId) => {
-        setShowReplies(true)
-    }
-    
-
 
     return ( 
         <div className = "row">
@@ -74,16 +64,12 @@ function Comments(props) {
                                     </Accordion.Item>
                                 </Accordion>
                             </div>
-                        
                             <br />
                             <hr />
-                            
                         </ListGroupItem>
-            })}
-            
-        </ListGroup>
-        </div>
-      
+                    })}
+                </ListGroup>
+            </div>
         </div>
      );
 }

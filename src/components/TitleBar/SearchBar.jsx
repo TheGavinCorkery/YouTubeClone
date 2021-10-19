@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Navbar, Form, FormControl } from "react-bootstrap";
+import { Button, Form, FormControl } from "react-bootstrap";
 import './TitleBar.css'
 
 function SearchBar(props) {
@@ -24,7 +24,7 @@ function SearchBar(props) {
             <div className="col-md-4">
                 <div className="navbar">
                     <h2>
-                        <span class="material-icons">play_circle_filled</span> vid.io
+                        <span className="material-icons">play_circle_filled</span> vid.io
                     </h2>
                 </div>
             </div>
@@ -39,7 +39,7 @@ function SearchBar(props) {
                         onChange={handleChange}
                     />
                     <Button className="btn btn-primary" type='submit'>
-                        <span class="material-icons">search</span>
+                        <span className="material-icons">search</span>
                     </Button>
                 </Form>
             </div>

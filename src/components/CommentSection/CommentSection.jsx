@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import Comments from './Comments';
 import CommentForm from './CommentForm';
 import './Comment.css'

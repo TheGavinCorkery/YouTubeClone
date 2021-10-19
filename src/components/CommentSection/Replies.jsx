@@ -1,6 +1,5 @@
-import axios from 'axios';
 import React from 'react';
-import { ListGroup,Card, CardBody, ListGroupItem } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 const Replies = (props) => {
 
