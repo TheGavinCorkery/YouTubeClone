@@ -99,6 +99,7 @@ class App extends Component {
       })
       console.log(comment)
       this.getVideoComments(videoId)
+      this.getReplies(videoId)
     }
     catch(err){
       console.log("🚀 ~ file: App.js ~ line 103 ~ App ~ postComment= ~ err", err)
