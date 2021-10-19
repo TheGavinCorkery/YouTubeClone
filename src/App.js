@@ -27,6 +27,7 @@ class App extends Component {
   baseURL = 'https://www.googleapis.com/youtube/v3/'
   searchURL = 'https://www.googleapis.com/youtube/v3/search'
   commentURL = 'http://127.0.0.1:8000/comments/'
+  replyURL = 'http://127.0.0.1:8000/commentsection/'
 
 
   playSelectedVideo = (video) => {
@@ -41,6 +42,7 @@ class App extends Component {
     })
     this.getRelatedVideos(video.id.videoId)
     this.getVideoComments(video.id.videoId)
+    this.getReplies(video.id.videoId)
     this.getVideoInformation(video.id.videoId)
   }
 
@@ -113,14 +115,14 @@ class App extends Component {
     }
   } 
 
-  getReplies = async(commentId) => {
+  getReplies = async(videoId) => {
     try{
-        let replies = await axios.get(`http://127.0.0.1:8000/replies/${commentId}`)
+        let replies = await axios.get(`${this.replyURL}${videoId}/`)
         this.setState({
           replies: replies.data
         })
     }catch (err) {
-        console.log('Error in getting comment replies', err)
+      console.log("🚀 ~ file: App.js ~ line 124 ~ App ~ getReplies=async ~ err", err)
     }
 }
 
@@ -169,7 +171,7 @@ class App extends Component {
         <TitleBar searchResults={this.getSearchResults} />
         <div className="row">
           <div className="col-md-9">
-            {this.state.videoID != null && <VideoPlayer replies = {this.state.replies} getReplies = {this.getReplies} postReply = {this.postReply} videoId={this.state.videoID} videoInfo={this.state.videoInfo} videoComments={this.state.videoComments} postComment = {this.postComment} likeComment={this.likeComment}/>}
+            {this.state.videoID != null && <VideoPlayer replies = {this.state.replies} postReply = {this.postReply} videoId={this.state.videoID} videoInfo={this.state.videoInfo} videoComments={this.state.videoComments} postComment = {this.postComment} likeComment={this.likeComment}/>}
           </div>
           <div className="col-md-3">
             <SearchResultsList playVideo={this.playSelectedVideo} results={this.state.searchResults} />
