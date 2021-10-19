@@ -15,7 +15,9 @@ class App extends Component {
       videoID: null,
       videoInfo: {
         title: "",
-        description: ""
+        description: "",
+        views: "",
+        channelTitle: "",
       },
       videoComments: [],
       replies: []
@@ -33,13 +35,13 @@ class App extends Component {
       videoInfo: {
         title: video.snippet.title,
         description: video.snippet.description,
-        channel: video.snippet.channelTitle
+        channelTitle: video.snippet.channelTitle
       },
       replies: []
     })
     this.getRelatedVideos(video.id.videoId)
     this.getVideoComments(video.id.videoId)
-    console.log(video.id.videoId)
+    this.getVideoInformation(video.id.videoId)
   }
 
   getRelatedVideos = async (videoID) => {
@@ -144,7 +146,22 @@ class App extends Component {
     }
   }
 
-
+  getVideoInformation = async (videoId) => {
+    try {
+      const response = await axios.get(`https://youtube.googleapis.com/youtube/v3/videos?key=${youtubeAPIKey}&id=${videoId}&part=statistics`)
+      console.log(response)
+      this.setState({
+        videoInfo: {
+          title: this.state.videoInfo.title,
+          description: this.state.videoInfo.description,
+          channelTitle: this.state.videoInfo.channelTitle,
+          views: response.data.items[0].statistics.viewCount
+        }
+      })
+    } catch (err) {
+      console.log('Error in videoInformation', err)
+    }
+    }
 
   render() {
     return (
