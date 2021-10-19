@@ -15,11 +15,16 @@ const VideoPlayer = (props) => {
                 src={`https://www.youtube.com/embed/${props.videoId}`}
                 frameborder="0" allowFullScreen/>
                 <div className = "videoMeta" align = "center">
-                    <p className="text-left text-light account" align="left">
-                    <span className="material-icons p-2 account">account_circle</span>
-                        {props.videoInfo.channelTitle}
-                    </p>
-                    <p className="text-right text-light account" align = "right">Views: {props.videoInfo.views}</p>
+                    <div className="d-flex justify-content-between">
+                        <p className="text-left text-light account " align="left">
+                        <span className="material-icons p-2 account">account_circle</span>
+                            {props.videoInfo.channelTitle}
+                        </p>
+                        <p className = "account"align = "right">Views: {props.videoInfo.views}</p>
+                    </div>
+                    
+                    
+                    
                     <h3>{props.videoInfo.title}</h3>
 
                     <hr />
