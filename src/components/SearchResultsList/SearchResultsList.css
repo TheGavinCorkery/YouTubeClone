@@ -5,3 +5,20 @@ a {
 ListGroupItem {
     display: inline-block !important;
 }
+
+.card {
+    flex-direction: row !important;
+    width: auto !important;
+}
+
+.img {
+    height: 180px;
+    width: 280px !important;
+    margin-bottom: 10px;
+    margin-left: -60px
+}
+
+.text {
+    margin-top: 30px !important;
+    margin-left: 10px !important
+}
